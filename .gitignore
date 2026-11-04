@@ -1,0 +1,11 @@
+# Datos personales: NUNCA subir la base al repositorio
+data/
+*.db
+*.sqlite
+*.xlsx
+*.xls
+*.csv
+!ejemplos/*.csv
+__pycache__/
+.pytest_cache/
+.venv/
