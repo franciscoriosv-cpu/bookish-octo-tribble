@@ -236,14 +236,15 @@ Public Sub MarcarBaja()
     Dim ws As Worksheet, enc As Variant, colTel As Long, tel As String, fila As Long
 
     Set ws = ThisWorkbook.Worksheets(HOJA_BASE)
-    If Not ActiveSheet Is ws Then
-        MsgBox "Ve a la hoja Base, selecciona la fila del cliente y vuelve a presionar el botón." & _
-               vbLf & "(También puedes escribir el número directamente en la hoja Bajas.)", _
+    ' Toma la fila que quedó seleccionada en la hoja Base.
+    If Not ActiveSheet Is ws Then ws.Activate
+    fila = ActiveCell.Row
+    If fila < 2 Then
+        MsgBox "En la hoja Base, selecciona una celda de la fila del cliente y presiona otra vez " & _
+               "Marcar baja." & vbLf & "(También puedes escribir el número en la hoja Bajas.)", _
                vbInformation
         Exit Sub
     End If
-    fila = ActiveCell.Row
-    If fila < 2 Then Exit Sub
 
     PrepararColumnas ws
     enc = ws.Range(ws.Cells(1, 1), ws.Cells(1, UltimaColumna(ws))).Value
@@ -253,7 +254,8 @@ Public Sub MarcarBaja()
         MsgBox "El número de la fila " & fila & " no es válido.", vbExclamation
         Exit Sub
     End If
-    If MsgBox("¿Marcar +" & tel & " como BAJA? No volverá a recibir mensajes.", _
+    If MsgBox("Fila " & fila & ": ¿marcar +" & tel & " como BAJA?" & vbLf & _
+              "No volverá a recibir mensajes.", _
               vbQuestion + vbYesNo) = vbNo Then Exit Sub
 
     AgregarBaja tel
