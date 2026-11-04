@@ -64,7 +64,9 @@ def pagina_mi_lista():
     with st.form("gestion", clear_on_submit=True):
         resultado = st.radio("Resultado del contacto", list(config.RESULTADOS), horizontal=True)
         planes = [p for _, p in config.PLANES_POR_RECARGA]
-        plan = st.selectbox("Plan ofrecido", planes, index=planes.index(cliente["plan_sugerido"]))
+        sugerido = cliente["plan_sugerido"]
+        indice = planes.index(sugerido) if sugerido in planes else 0
+        plan = st.selectbox("Plan ofrecido", planes, index=indice)
         nota = st.text_area("Nota")
         c1, c2 = st.columns(2)
         fecha = c1.date_input("Volver a llamar el (opcional)", value=None)
