@@ -1,0 +1,19 @@
+ENVIO DE WHATSAPP DESDE EXCEL
+=============================
+
+1. Descarga el ZIP del repositorio, clic derecho > Propiedades > marca "Desbloquear" > Aceptar.
+2. Descomprime y entra a la carpeta excel_whatsapp.
+3. Doble clic en INSTALAR.bat. Se crea y se abre EnvioWhatsApp.xlsm.
+4. En Excel presiona "Habilitar contenido".
+5. Hoja Config:
+   - 1. Importar base     -> eliges tu Excel de la BBDD
+   - Ajusta tiempos, mensaje, maximo y canal (celdas amarillas)
+   - Hoja Mensajes        -> cambia los textos cuando quieras
+   - 2. Probar mensaje    -> ves como queda
+   - 3. ENVIAR MENSAJES   -> abre cada chat con el mensaje escrito; tu presionas Enter
+6. Para detener: tecla Esc.
+
+El manual completo esta en el documento "Manual de uso: Ventas de planes",
+pestana "Excel + WhatsApp".
+
+NO subas EnvioWhatsApp.xlsm ni la BBDD a GitHub: contienen datos personales.
